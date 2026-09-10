@@ -1,0 +1,836 @@
+<title>Deepika Singh</title>
+<meta name="description" content="Research profile of Deepika Singh — machine learning for prognostics, health management, and trustworthy AI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+
+<style>
+  :root {
+    --paper:   #F4F6F7;
+    --surface: #FFFFFF;
+    --ink:     #18212B;
+    --ink-soft:#55606D;
+    --ink-faint:#7E8894;
+    --rule:    #DCE0E3;
+    --accent:  #21606F;
+    --accent-hover: #2C818F;
+    --tag-bg:  #E7EDEE;
+
+    --display: "Spectral", "Iowan Old Style", Georgia, serif;
+    --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --measure: 63ch;
+    --pad: clamp(20px, 5vw, 44px);
+    --maxw: 760px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:   #10151A;
+      --surface: #171E25;
+      --ink:     #E7EBEE;
+      --ink-soft:#A5AFB8;
+      --ink-faint:#79838D;
+      --rule:    #27313A;
+      --accent:  #63B4CB;
+      --accent-hover: #8ACEDE;
+      --tag-bg:  #1D262D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:   #10151A;
+    --surface: #171E25;
+    --ink:     #E7EBEE;
+    --ink-soft:#A5AFB8;
+    --ink-faint:#79838D;
+    --rule:    #27313A;
+    --accent:  #63B4CB;
+    --accent-hover: #8ACEDE;
+    --tag-bg:  #1D262D;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 2px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px var(--pad);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .wordmark:hover { color: var(--ink); text-decoration: none; }
+  .topnav {
+    margin-left: auto;
+    display: flex;
+    gap: 22px;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .topnav a { color: var(--ink-soft); }
+  .topnav a:hover { color: var(--accent); text-decoration: none; }
+  #theme-toggle {
+    margin-left: auto;
+    flex: none;
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  #theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .topnav + #theme-toggle { margin-left: 0; }
+
+  /* ---------- layout ---------- */
+  main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--pad) 80px;
+  }
+  section { scroll-margin-top: 70px; }
+  section + section { margin-top: 60px; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0 22px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 1em; }
+  .prose { max-width: var(--measure); color: var(--ink-soft); }
+  .prose strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 54px 0 46px;
+  }
+  @media (min-width: 720px) {
+    .hero { grid-template-columns: 1fr auto; align-items: start; }
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2.3rem, 7vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  .lede {
+    font-family: var(--display);
+    font-size: 1.14rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 54ch;
+    margin: 0 0 22px;
+  }
+  .contact {
+    list-style: none;
+    margin: 0 0 26px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+  }
+  .contact a { color: var(--ink-soft); }
+  .contact a:hover { color: var(--accent); }
+
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--rule);
+  }
+  .metrics div { display: flex; flex-direction: column; gap: 2px; }
+  .metrics dt {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .metrics dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.7rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .avatar {
+    width: 148px;
+    height: 148px;
+    flex: none;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-fallback {
+    width: 148px;
+    height: 148px;
+    flex: none;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    background: var(--tag-bg);
+    display: grid;
+    place-items: center;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 2.6rem;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+  }
+  .avatar-fallback svg {
+    position: absolute;
+    inset: auto 10px 10px auto;
+    width: 46px;
+    height: auto;
+    opacity: 0.5;
+  }
+  .avatar-fallback { position: relative; overflow: hidden; }
+  .avatar-fallback .curve { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; }
+  @media (max-width: 719px) {
+    .avatar, .avatar-fallback { width: 96px; height: 96px; font-size: 1.7rem; }
+    .avatar-fallback svg { width: 32px; }
+  }
+
+  /* ---------- interests ---------- */
+  .tags {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tags li {
+    font-family: var(--mono);
+    font-size: 0.73rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    background: var(--tag-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 4px 9px;
+  }
+
+  /* ---------- news ---------- */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px 18px;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .news li:first-child { border-top: 0; padding-top: 0; }
+  @media (min-width: 520px) {
+    .news li { grid-template-columns: 96px 1fr; }
+  }
+  .news time {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--accent);
+    padding-top: 1px;
+  }
+  .news p { margin: 0; color: var(--ink-soft); max-width: 56ch; }
+
+  /* ---------- entries (experience / education) ---------- */
+  .entries { list-style: none; margin: 0; padding: 0; }
+  .entry { padding: 20px 0; border-top: 1px solid var(--rule); }
+  .entry:first-child { border-top: 0; padding-top: 0; }
+  .entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+  }
+  .entry-head h3 {
+    margin: 0;
+    font-size: 1.04rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .when {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .where {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    margin: 3px 0 0;
+  }
+  .bullets {
+    margin: 12px 0 0;
+    padding-left: 1.1em;
+    max-width: var(--measure);
+    color: var(--ink-soft);
+  }
+  .bullets li { margin: 4px 0; }
+  .aside {
+    margin: 10px 0 0;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+  }
+  .thesis { margin: 10px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .thesis em { font-family: var(--display); }
+
+  /* ---------- publications ---------- */
+  .section-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin: -8px 0 22px;
+  }
+  .pubs { list-style: none; margin: 0; padding: 0; counter-reset: pub; }
+  .pubs li {
+    counter-increment: pub;
+    position: relative;
+    padding: 18px 0 18px 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .pubs li:first-child { border-top: 0; padding-top: 0; }
+  .pubs li::before {
+    content: counter(pub);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+  .pubs li:first-child::before { top: 0; }
+  .pub-title { margin: 0 0 5px; color: var(--ink); font-weight: 500; }
+  .pub-meta { margin: 0 0 4px; font-size: 0.88rem; color: var(--ink-soft); }
+  .pub-meta .venue { font-family: var(--display); font-style: italic; }
+  .pub-links { margin: 0; font-family: var(--mono); font-size: 0.76rem; }
+
+  /* ---------- talks ---------- */
+  .talks { list-style: none; margin: 0; padding: 0; }
+  .talks li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .talks li:first-child { border-top: 0; padding-top: 0; }
+  .talk-main { max-width: 52ch; }
+  .talk-title { margin: 0 0 2px; color: var(--ink); }
+  .talk-venue { margin: 0; font-size: 0.86rem; color: var(--ink-soft); }
+  .talk-year {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- awards ---------- */
+  .awards { list-style: none; margin: 0; padding: 0; }
+  .awards li {
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .awards li:first-child { border-top: 0; padding-top: 0; }
+  .award-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px 16px;
+  }
+  .award-name { font-weight: 600; color: var(--ink); }
+  .award-year { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); }
+  .award-detail { margin: 2px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
+  .award-detail em { font-family: var(--display); }
+
+  /* ---------- skills ---------- */
+  .skills { margin: 0; display: grid; gap: 14px; }
+  .skills > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .skills > div:last-child { border-bottom: 0; padding-bottom: 0; }
+  @media (min-width: 560px) {
+    .skills > div { grid-template-columns: 190px 1fr; gap: 16px; align-items: baseline; }
+  }
+  .skills dt {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .skills dd { margin: 0; color: var(--ink-soft); }
+
+  .langs { font-family: var(--body); color: var(--ink-soft); }
+  .langs strong { color: var(--ink); font-weight: 600; }
+
+  footer {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 22px var(--pad) 40px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+
+<header class="topbar">
+  <a class="wordmark" href="#top">Deepika Singh</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#experience">Experience</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+    <a href="#awards">Awards</a>
+  </nav>
+  <button id="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">◐</button>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-text">
+      <p class="eyebrow">Research Engineer — CMAP, École Polytechnique</p>
+      <h1>Deepika Singh</h1>
+      <p class="lede">Machine learning for prognostics &amp; health management — fault detection, diagnostics, and predictive maintenance, with a current focus on battery health.</p>
+      <ul class="contact">
+        <li><a href="mailto:dsdeepikasingh2@gmail.com">dsdeepikasingh2@gmail.com</a></li>
+        <li><a href="tel:+33758775772">+33&nbsp;7&nbsp;58&nbsp;77&nbsp;57&nbsp;72</a></li>
+        <li><a href="#" data-link="scholar">Google&nbsp;Scholar</a></li>
+        <li><a href="#" data-link="linkedin">LinkedIn</a></li>
+        <li><a href="#" data-link="researchgate">ResearchGate</a></li>
+      </ul>
+      <dl class="metrics">
+        <div><dt>Publications</dt><dd>15</dd></div>
+        <div><dt>Citations</dt><dd>830</dd></div>
+        <div><dt>h-index</dt><dd>12</dd></div>
+      </dl>
+    </div>
+
+    <!-- Swap this block for: <img class="avatar" src="photo.jpg" alt="Deepika Singh" /> -->
+    <div class="avatar-fallback" aria-hidden="true">
+      DS
+      <svg viewBox="0 0 60 34" xmlns="http://www.w3.org/2000/svg">
+        <path class="curve" d="M2,6 C22,10 30,22 44,28 S58,32 58,32" />
+      </svg>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="prose">
+      <p>I build machine-learning methods for <strong>prognostics and health management (PHM)</strong>. At the Centre de Mathématiques Appliquées (CMAP) at École Polytechnique, I design fault-detection, diagnostics, and predictive-maintenance models, integrating multi-sensor datasets with a focus on <strong>battery health management</strong>.</p>
+      <p>Previously, at CEA LIST, I developed decentralised and robust <strong>federated-learning</strong> algorithms for secure distributed AI, and engineered countermeasures against backdoor and poisoning attacks to strengthen the trustworthiness of AI in industrial settings. Earlier work at MedUni Graz and AIT covered <strong>interpretable and explainable ML</strong> for healthcare and <strong>human activity recognition</strong> for ambient assisted living.</p>
+      <p>I hold a PhD in Computer Science from TU Graz and was a Marie Skłodowska–Curie fellow in the H2020 ACROSSING network.</p>
+      <ul class="tags" aria-label="Research interests">
+        <li>Prognostics &amp; health management</li>
+        <li>Battery degradation modelling</li>
+        <li>Federated &amp; trustworthy AI</li>
+        <li>Explainable AI</li>
+        <li>Human activity recognition</li>
+        <li>Predictive maintenance</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li>
+        <time datetime="2025-05">May 2025</time>
+        <p>Gave an invited talk in the Battery Intelligence track at AABC Europe, Mainz — <em>Degradation-Directed Analysis of Lead-acid Batteries from Operational Data</em>.</p>
+      </li>
+      <li>
+        <time datetime="2025-02">Feb 2025</time>
+        <p>New article in <em>Universal Access in the Information Society</em> on explainability of deep learning for multi-resident activity recognition under class imbalance.</p>
+      </li>
+      <li>
+        <time datetime="2024-07">Jul 2024</time>
+        <p>Joined CMAP, École Polytechnique as a Research Engineer, working on machine learning for battery health management.</p>
+      </li>
+      <li>
+        <time datetime="2023-12">Dec 2023</time>
+        <p>Received the Best Student Paper Award at TPS-ISA 2023 for <em>Fuba: Federated uncovering of backdoor attacks for heterogeneous data</em>.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ol class="entries">
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Research Engineer</h3>
+          <span class="when">Jul 2024 — Present</span>
+        </div>
+        <p class="where">Centre de Mathématiques Appliquées (CMAP), École Polytechnique · Palaiseau, France</p>
+        <ul class="bullets">
+          <li>Design advanced ML methods for fault detection, diagnostics, and predictive maintenance (PHM).</li>
+          <li>Optimise industrial processes by integrating multi-sensor datasets, with a focus on battery health management.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Research Engineer / Postdoctoral Researcher</h3>
+          <span class="when">Jul 2022 — Jun 2024</span>
+        </div>
+        <p class="where">Commissariat à l'énergie atomique et aux énergies alternatives (CEA) LIST · Paris-Saclay, France</p>
+        <ul class="bullets">
+          <li>Developed decentralised and robust federated-learning algorithms for secure distributed AI.</li>
+          <li>Engineered countermeasures against backdoor and poisoning attacks, strengthening AI trustworthiness in industrial applications.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Scientific Researcher</h3>
+          <span class="when">Nov 2019 — Jan 2021</span>
+        </div>
+        <p class="where">Medizinische Universität Graz (MedUni) · Graz, Austria</p>
+        <ul class="bullets">
+          <li>Contributed to the EU-funded FeatureCloud project, advancing privacy-preserving healthcare AI.</li>
+          <li>Built interpretable and explainable ML models to enhance transparency in the medical domain.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Junior Scientist — Marie Curie PhD Fellow</h3>
+          <span class="when">Sep 2016 — Oct 2019</span>
+        </div>
+        <p class="where">Austrian Institute of Technology (AIT) GmbH · Wiener Neustadt, Austria</p>
+        <ul class="bullets">
+          <li>Marie Skłodowska–Curie fellow in H2020 ACROSSING — machine learning and deep learning for smart homes and ambient assisted living (AAL).</li>
+          <li>Developed models for user behaviour, activity recognition, privacy-preserving data management, and dialogue systems in AAL environments.</li>
+        </ul>
+        <p class="aside">Visiting researcher: De Montfort University, UK (Apr–May 2018); Zuyderland Nursing Homes, Netherlands (Apr–May 2017).</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Lecturer &amp; Research Fellow</h3>
+          <span class="when">Aug 2014 — Jun 2015</span>
+        </div>
+        <p class="where">Malaviya National Institute of Technology (MNIT) · Jaipur, India</p>
+        <ul class="bullets">
+          <li>Taught Image Processing, Data Mining, and Algorithm Design for bachelor's students.</li>
+          <li>Conducted research activities in collaboration with Master's and PhD students.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>Lecturer</h3>
+          <span class="when">Jun 2011 — Jul 2012</span>
+        </div>
+        <p class="where">PCE Engineering College · Jaipur, India</p>
+        <ul class="bullets">
+          <li>Taught the C programming language for bachelor's students.</li>
+          <li>Organised technical activities among students for software development.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ol class="entries">
+      <li class="entry">
+        <div class="entry-head">
+          <h3>PhD in Computer Science</h3>
+          <span class="when">Nov 2017 — Jul 2021</span>
+        </div>
+        <p class="where">Graz University of Technology (TU Graz) · Graz, Austria</p>
+        <p class="thesis">Thesis: <em>Machine Learning-based Smart Home Systems in Ambient Assisted Living.</em> Advisor: Prof. Andreas Holzinger.</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>M.Tech in Computer Science</h3>
+          <span class="when">Jul 2012 — May 2014</span>
+        </div>
+        <p class="where">Banasthali University · Rajasthan, India</p>
+        <p class="thesis">Thesis: <em>Early Detection of Malignant Melanoma using machine learning techniques.</em> Advisor: Prof. Mustaq Ahmed, MNIT.</p>
+      </li>
+      <li class="entry">
+        <div class="entry-head">
+          <h3>B.Tech in Computer Engineering</h3>
+          <span class="when">Jul 2007 — May 2011</span>
+        </div>
+        <p class="where">Rajasthan Technical University · Rajasthan, India</p>
+        <p class="thesis">Thesis: <em>Website Development and Payroll Management System using ASP.NET.</em></p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <p class="section-note">15 publications · 830 citations · h-index 12 — <a href="#" data-link="scholar">full list on Google Scholar</a></p>
+    <ol class="pubs">
+      <li>
+        <p class="pub-title">Class imbalance in multi-resident activity recognition: an evaluative study on explainability of deep learning approaches</p>
+        <p class="pub-meta">D. Singh, E. Merdivan, J. Kropf, M. Geist, A. Holzinger, S. Hanke · <span class="venue">Universal Access in the Information Society</span> 24, 1173–1191 · 2025</p>
+        <p class="pub-links"><a href="https://doi.org/10.1007/s10209-024-01123-0">doi.org/10.1007/s10209-024-01123-0</a></p>
+      </li>
+      <li>
+        <p class="pub-title">Défense contre les attaques par porte dérobée en apprentissage fédéré par estimation du motif d'attaque et élagage</p>
+        <p class="pub-meta">F. Espinoza, D. Singh, A. Mayoue, C. Gouy-Pailler · <span class="venue">GRETSI 2023 Conference</span> · Aug 2023</p>
+      </li>
+      <li>
+        <p class="pub-title">Users' perceptions and attitudes towards smart home technologies</p>
+        <p class="pub-meta">D. Singh, I. Psychoula, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 203–214 · 2018</p>
+        <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-94523-1_18">doi.org/10.1007/978-3-319-94523-1_18</a></p>
+      </li>
+      <li>
+        <p class="pub-title">Ambient assisted living technologies from the perspectives of older people and professionals</p>
+        <p class="pub-meta">D. Singh, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 255–266 · 2017</p>
+        <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-66808-6_17">doi.org/10.1007/978-3-319-66808-6_17</a></p>
+      </li>
+      <li>
+        <p class="pub-title">Convolutional and recurrent neural networks for activity recognition in smart environment</p>
+        <p class="pub-meta">D. Singh, E. Merdivan, S. Hanke, J. Kropf, M. Geist, A. Holzinger · <span class="venue">Towards Integrative Machine Learning and Knowledge Extraction</span>, Springer, 194–205 · 2017</p>
+        <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-69775-8_12">doi.org/10.1007/978-3-319-69775-8_12</a></p>
+      </li>
+      <li>
+        <p class="pub-title">Human activity recognition using recurrent neural networks</p>
+        <p class="pub-meta">D. Singh, E. Merdivan, I. Psychoula, J. Kropf, S. Hanke, M. Geist, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 267–274 · 2017</p>
+        <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-66808-6_18">doi.org/10.1007/978-3-319-66808-6_18</a></p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Talks &amp; Posters</h2>
+    <ol class="talks">
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Degradation-Directed Analysis of Lead-acid Battery from Operational Data: Current State and Challenges</p>
+          <p class="talk-venue">Battery Intelligence, AABC Europe · Mainz, Germany</p>
+        </div>
+        <span class="talk-year">2025</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Federated uncovering of backdoor attacks for heterogeneous data</p>
+          <p class="talk-venue">Seminar, CEA LIST Days · Paris-Saclay, France</p>
+        </div>
+        <span class="talk-year">2024</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Users' perceptions and attitudes towards smart home technologies</p>
+          <p class="talk-venue">Webinar, Community Care Smart AT · Queensland, Australia</p>
+        </div>
+        <span class="talk-year">2018</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Activity recognition in smart homes</p>
+          <p class="talk-venue">AIT PhD Winter School · Austria</p>
+        </div>
+        <span class="talk-year">2017</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Smart Homes for Ambient Assisted Living Technologies</p>
+          <p class="talk-venue">MCAA General Assembly · Salamanca, Spain</p>
+        </div>
+        <span class="talk-year">2017</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Human activity recognition using recurrent neural networks</p>
+          <p class="talk-venue">ARES · Italy</p>
+        </div>
+        <span class="talk-year">2017</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Ambient assisted living technologies from the perspectives of older people and professionals</p>
+          <p class="talk-venue">ARES · Italy</p>
+        </div>
+        <span class="talk-year">2017</span>
+      </li>
+      <li>
+        <div class="talk-main">
+          <p class="talk-title">Detection techniques for melanoma diagnosis: a performance evaluation</p>
+          <p class="talk-venue">ICSPCT · India</p>
+        </div>
+        <span class="talk-year">2014</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="awards">
+    <h2>Awards</h2>
+    <ul class="awards">
+      <li>
+        <div class="award-head">
+          <span class="award-name">Best Student Paper Award — TPS-ISA</span>
+          <span class="award-year">2023</span>
+        </div>
+        <p class="award-detail"><em>Fuba: Federated uncovering of backdoor attacks for heterogeneous data.</em></p>
+      </li>
+      <li>
+        <div class="award-head">
+          <span class="award-name">Best Student Paper Award — ICOST</span>
+          <span class="award-year">2018</span>
+        </div>
+        <p class="award-detail"><em>Users' perceptions and attitudes towards smart home technologies.</em></p>
+      </li>
+      <li>
+        <div class="award-head">
+          <span class="award-name">Marie Skłodowska–Curie Fellowship — European Commission</span>
+          <span class="award-year">2016–2019</span>
+        </div>
+        <p class="award-detail">Horizon 2020, MSCA-ITN grant.</p>
+      </li>
+      <li>
+        <div class="award-head">
+          <span class="award-name">Best Presenter — ISCA</span>
+          <span class="award-year">2013</span>
+        </div>
+        <p class="award-detail"><em>Three-dimensional computer processors.</em></p>
+      </li>
+      <li>
+        <div class="award-head">
+          <span class="award-name">Outstanding Engineering Student — semester topper</span>
+          <span class="award-year">2009–2010</span>
+        </div>
+        <p class="award-detail">Department of Computer Science and Engineering, ACERC, RTU.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <div>
+        <dt>Machine Learning / AI</dt>
+        <dd>Deep learning, explainable AI, computer vision, image processing, federated learning, NLP, predictive maintenance</dd>
+      </div>
+      <div>
+        <dt>Frameworks &amp; Tools</dt>
+        <dd>TensorFlow, PyTorch, Keras, scikit-learn, OpenCV, SHAP, pandas, Seaborn</dd>
+      </div>
+      <div>
+        <dt>Programming</dt>
+        <dd>Python, R, MATLAB, C, C++</dd>
+      </div>
+      <div>
+        <dt>Other</dt>
+        <dd>Project management, research supervision, academic writing</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <p class="langs"><strong>English</strong> — Fluent &nbsp;·&nbsp; <strong>French</strong> — A2 &nbsp;·&nbsp; <strong>German</strong> — A1</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Deepika Singh · Research profile · Updated September 2026</p>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var KEY = 'ds-theme';
+
+    function stored() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+    function apply(mode) {
+      if (mode === 'light' || mode === 'dark') {
+        root.setAttribute('data-theme', mode);
+      } else {
+        root.removeAttribute('data-theme');
+      }
+    }
+    function current() {
+      var attr = root.getAttribute('data-theme');
+      if (attr) return attr;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    apply(stored());
+
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+    });
+  })();
+</script>
