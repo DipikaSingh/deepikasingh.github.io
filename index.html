@@ -1,5 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Deepika Singh</title>
 <meta name="description" content="Research profile of Deepika Singh — machine learning for prognostics, health management, and trustworthy AI." />
+<meta name="author" content="Deepika Singh" />
+<link rel="canonical" href="https://dipikasingh.github.io/" />
+<meta name="theme-color" content="#f4f6f7" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#10151a" media="(prefers-color-scheme: dark)" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Deepika Singh" />
+<meta property="og:description" content="Machine learning for prognostics &amp; health management — fault detection, diagnostics, and predictive maintenance, with a current focus on battery health." />
+<meta property="og:url" content="https://dipikasingh.github.io/" />
+<meta property="og:image" content="https://dipikasingh.github.io/photo.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2321606F'/%3E%3Ctext x='50%25' y='53%25' dy='.35em' text-anchor='middle' font-family='Georgia,serif' font-weight='bold' font-size='30' fill='%23ffffff'%3EDS%3C/text%3E%3C/svg%3E" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
@@ -10,7 +30,7 @@
     --surface: #FFFFFF;
     --ink:     #18212B;
     --ink-soft:#55606D;
-    --ink-faint:#7E8894;
+    --ink-faint:#5F6873;
     --rule:    #DCE0E3;
     --accent:  #21606F;
     --accent-hover: #2C818F;
@@ -31,7 +51,7 @@
       --surface: #171E25;
       --ink:     #E7EBEE;
       --ink-soft:#A5AFB8;
-      --ink-faint:#79838D;
+      --ink-faint:#8A939C;
       --rule:    #27313A;
       --accent:  #63B4CB;
       --accent-hover: #8ACEDE;
@@ -43,7 +63,7 @@
     --surface: #171E25;
     --ink:     #E7EBEE;
     --ink-soft:#A5AFB8;
-    --ink-faint:#79838D;
+    --ink-faint:#8A939C;
     --rule:    #27313A;
     --accent:  #63B4CB;
     --accent-hover: #8ACEDE;
@@ -220,6 +240,7 @@
     border-radius: 6px;
     border: 1px solid var(--rule);
     object-fit: cover;
+    object-position: 50% 20%;
     display: block;
   }
   .avatar-fallback {
@@ -364,6 +385,7 @@
   .pubs li:first-child::before { top: 0; }
   .pub-title { margin: 0 0 5px; color: var(--ink); font-weight: 500; }
   .pub-meta { margin: 0 0 4px; font-size: 0.88rem; color: var(--ink-soft); }
+  .pub-meta strong { color: var(--ink); font-weight: 600; }
   .pub-meta .venue { font-family: var(--display); font-style: italic; }
   .pub-links { margin: 0; font-family: var(--mono); font-size: 0.76rem; }
 
@@ -444,7 +466,47 @@
     * { transition: none !important; scroll-behavior: auto !important; }
   }
   html { scroll-behavior: smooth; }
+
+  /* ---------- active section in nav ---------- */
+  .topnav a.active { color: var(--accent); }
+
+  /* ---------- top bar on small screens ---------- */
+  @media (max-width: 640px) {
+    .topbar { flex-wrap: wrap; gap: 10px 16px; }
+    .wordmark { order: 1; }
+    #theme-toggle { order: 2; margin-left: auto; }
+    .topnav {
+      order: 3;
+      width: 100%;
+      margin-left: 0;
+      gap: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .topnav::-webkit-scrollbar { display: none; }
+    .topnav a { white-space: nowrap; }
+  }
+
+  /* ---------- print ---------- */
+  @media print {
+    .topbar, #theme-toggle { display: none !important; }
+    html { scroll-behavior: auto; }
+    body { background: #fff; color: #000; font-size: 11pt; line-height: 1.5; }
+    main { max-width: none; padding: 0; }
+    a { color: #000; text-decoration: underline; }
+    .prose, .prose strong, .bullets, .news p, .pub-meta, .pub-meta strong,
+    .talk-venue, .award-detail, .where, .thesis, .aside, .langs { color: #000; }
+    h1, h2, h3 { color: #000; }
+    h2 { border-color: #000; }
+    section + section { margin-top: 22px; }
+    section, .entry, .pubs li, .news li, .talks li, .awards li { page-break-inside: avoid; }
+    .pub-links a::after { content: " (" attr(href) ")"; font-size: 0.85em; word-break: break-all; }
+  }
 </style>
+</head>
+
+<body>
 
 <header class="topbar">
   <a class="wordmark" href="#top">Deepika Singh</a>
@@ -455,6 +517,7 @@
     <a href="#publications">Publications</a>
     <a href="#talks">Talks</a>
     <a href="#awards">Awards</a>
+    <a href="cv.pdf">CV</a>
   </nav>
   <button id="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">◐</button>
 </header>
@@ -469,9 +532,10 @@
       <ul class="contact">
         <li><a href="mailto:dsdeepikasingh2@gmail.com">dsdeepikasingh2@gmail.com</a></li>
         <li><a href="tel:+33758775772">+33&nbsp;7&nbsp;58&nbsp;77&nbsp;57&nbsp;72</a></li>
-        <li><a href="#" data-link="scholar">Google&nbsp;Scholar</a></li>
-        <li><a href="#" data-link="linkedin">LinkedIn</a></li>
-        <li><a href="#" data-link="researchgate">ResearchGate</a></li>
+        <li><a href="cv.pdf">CV&nbsp;(PDF)</a></li>
+        <li><a href="https://scholar.google.com/citations?user=m7G4VR0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google&nbsp;Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/deepika-singh5/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.researchgate.net/profile/Deepika-Singh-29" target="_blank" rel="noopener">ResearchGate</a></li>
       </ul>
       <dl class="metrics">
         <div><dt>Publications</dt><dd>15</dd></div>
@@ -627,35 +691,35 @@
 
   <section id="publications">
     <h2>Selected Publications</h2>
-    <p class="section-note">15 publications · 830 citations · h-index 12 — <a href="#" data-link="scholar">full list on Google Scholar</a></p>
+    <p class="section-note">15 publications · 830 citations · h-index 12 — <a href="https://scholar.google.com/citations?user=m7G4VR0AAAAJ&amp;hl=en" target="_blank" rel="noopener">full list on Google&nbsp;Scholar</a></p>
     <ol class="pubs">
       <li>
         <p class="pub-title">Class imbalance in multi-resident activity recognition: an evaluative study on explainability of deep learning approaches</p>
-        <p class="pub-meta">D. Singh, E. Merdivan, J. Kropf, M. Geist, A. Holzinger, S. Hanke · <span class="venue">Universal Access in the Information Society</span> 24, 1173–1191 · 2025</p>
+        <p class="pub-meta"><strong>D. Singh</strong>, E. Merdivan, J. Kropf, M. Geist, A. Holzinger, S. Hanke · <span class="venue">Universal Access in the Information Society</span> 24, 1173–1191 · 2025</p>
         <p class="pub-links"><a href="https://doi.org/10.1007/s10209-024-01123-0">doi.org/10.1007/s10209-024-01123-0</a></p>
       </li>
       <li>
         <p class="pub-title">Défense contre les attaques par porte dérobée en apprentissage fédéré par estimation du motif d'attaque et élagage</p>
-        <p class="pub-meta">F. Espinoza, D. Singh, A. Mayoue, C. Gouy-Pailler · <span class="venue">GRETSI 2023 Conference</span> · Aug 2023</p>
+        <p class="pub-meta">F. Espinoza, <strong>D. Singh</strong>, A. Mayoue, C. Gouy-Pailler · <span class="venue">GRETSI 2023 Conference</span> · Aug 2023</p>
       </li>
       <li>
         <p class="pub-title">Users' perceptions and attitudes towards smart home technologies</p>
-        <p class="pub-meta">D. Singh, I. Psychoula, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 203–214 · 2018</p>
+        <p class="pub-meta"><strong>D. Singh</strong>, I. Psychoula, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 203–214 · 2018</p>
         <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-94523-1_18">doi.org/10.1007/978-3-319-94523-1_18</a></p>
       </li>
       <li>
         <p class="pub-title">Ambient assisted living technologies from the perspectives of older people and professionals</p>
-        <p class="pub-meta">D. Singh, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 255–266 · 2017</p>
+        <p class="pub-meta"><strong>D. Singh</strong>, J. Kropf, S. Hanke, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 255–266 · 2017</p>
         <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-66808-6_17">doi.org/10.1007/978-3-319-66808-6_17</a></p>
       </li>
       <li>
         <p class="pub-title">Convolutional and recurrent neural networks for activity recognition in smart environment</p>
-        <p class="pub-meta">D. Singh, E. Merdivan, S. Hanke, J. Kropf, M. Geist, A. Holzinger · <span class="venue">Towards Integrative Machine Learning and Knowledge Extraction</span>, Springer, 194–205 · 2017</p>
+        <p class="pub-meta"><strong>D. Singh</strong>, E. Merdivan, S. Hanke, J. Kropf, M. Geist, A. Holzinger · <span class="venue">Towards Integrative Machine Learning and Knowledge Extraction</span>, Springer, 194–205 · 2017</p>
         <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-69775-8_12">doi.org/10.1007/978-3-319-69775-8_12</a></p>
       </li>
       <li>
         <p class="pub-title">Human activity recognition using recurrent neural networks</p>
-        <p class="pub-meta">D. Singh, E. Merdivan, I. Psychoula, J. Kropf, S. Hanke, M. Geist, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 267–274 · 2017</p>
+        <p class="pub-meta"><strong>D. Singh</strong>, E. Merdivan, I. Psychoula, J. Kropf, S. Hanke, M. Geist, A. Holzinger · <span class="venue">Lecture Notes in Computer Science</span>, Springer, 267–274 · 2017</p>
         <p class="pub-links"><a href="https://doi.org/10.1007/978-3-319-66808-6_18">doi.org/10.1007/978-3-319-66808-6_18</a></p>
       </li>
     </ol>
@@ -827,4 +891,58 @@
       try { localStorage.setItem(KEY, next); } catch (e) {}
     });
   })();
+
+  /* highlight the section currently in view in the top nav */
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.topnav a[href^="#"]'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    var targets = [];
+    links.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      if (el) { map[el.id] = a; targets.push(el); }
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+  })();
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Deepika Singh",
+  "url": "https://dipikasingh.github.io/",
+  "image": "https://dipikasingh.github.io/photo.jpg",
+  "email": "mailto:dsdeepikasingh2@gmail.com",
+  "jobTitle": "Research Engineer",
+  "worksFor": { "@type": "Organization", "name": "CMAP, École Polytechnique" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Graz University of Technology" },
+    { "@type": "CollegeOrUniversity", "name": "Banasthali University" },
+    { "@type": "CollegeOrUniversity", "name": "Rajasthan Technical University" }
+  ],
+  "knowsAbout": [
+    "Prognostics and health management",
+    "Battery degradation modelling",
+    "Federated and trustworthy AI",
+    "Explainable AI",
+    "Human activity recognition",
+    "Predictive maintenance"
+  ],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=m7G4VR0AAAAJ&hl=en",
+    "https://www.linkedin.com/in/deepika-singh5/",
+    "https://www.researchgate.net/profile/Deepika-Singh-29"
+  ]
+}
+</script>
+
+</body>
+</html>
