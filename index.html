@@ -143,7 +143,7 @@
     background-color: var(--global-text-color); border-radius: 1px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 900px) {
     #navbar .container { flex-wrap: wrap; }
     .navbar-toggler { display: block; }
     .navbar-nav {
@@ -190,6 +190,9 @@
   .news td, .news th { padding: 2px 1rem 2px 0; font-size: 1rem; vertical-align: top; text-align: left; }
   .news th { font-weight: 700; width: 20%; white-space: nowrap; }
   @media (max-width: 575px) { .news th { width: 32%; } }
+  .news details { margin-top: 0.75rem; }
+  .news details > summary { cursor: pointer; color: var(--global-theme-color); font-size: 0.95rem; list-style: revert; }
+  .news details[open] > summary { margin-bottom: 0.75rem; }
 
   /* ---------- entries ---------- */
   .entry { padding: 0.7rem 0; border-top: 1px solid var(--global-divider-color); }
@@ -215,6 +218,15 @@
   }
   .bibliography .title { font-weight: 700; }
   .bibliography .author em { font-style: normal; border-bottom: 1px solid; }
+  .bibliography .author a { border-bottom: 1px dashed var(--global-theme-color); text-decoration: none; }
+  .bibliography .author a:hover { border-bottom-style: solid; text-decoration: none; }
+  ol.bibliography li.year {
+    color: var(--global-text-color-light);
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 0.6rem; margin: 1.6rem 0 1rem; text-align: right;
+    font-size: 1.1rem; font-weight: 500;
+  }
+  ol.bibliography li.year:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
   .bibliography .periodical { color: var(--global-text-color-light); }
   .bibliography .periodical em { font-style: italic; }
   .bibliography .links { margin-top: 0.5rem; }
@@ -301,10 +313,11 @@
       <li class="nav-item"><a class="nav-link" href="cv.pdf" target="_blank" rel="noopener">cv</a></li>
       <li class="nav-item"><a class="nav-link" href="#news">news</a></li>
       <li class="nav-item"><a class="nav-link" href="#experience">experience</a></li>
-      <li class="nav-item"><a class="nav-link" href="#education">education</a></li>
+      <li class="nav-item"><a class="nav-link" href="#teaching">teaching</a></li>
       <li class="nav-item"><a class="nav-link" href="#publications">publications</a></li>
       <li class="nav-item"><a class="nav-link" href="#talks">talks</a></li>
       <li class="nav-item"><a class="nav-link" href="#awards">awards</a></li>
+      <li class="nav-item"><a class="nav-link" href="#service">service</a></li>
       <li class="nav-item">
         <button id="light-toggle" title="Change theme" aria-label="Change theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
       </li>
@@ -329,28 +342,41 @@
       </div>
 
       <div class="clearfix" style="text-align: justify;">
-        <p>I build machine-learning methods for <strong>prognostics and health management (PHM)</strong>. At the Centre de Mathématiques Appliquées (CMAP) at École Polytechnique, I design fault-detection, diagnostics, and predictive-maintenance models, integrating multi-sensor datasets with a focus on <strong>battery health management</strong>.</p>
-        <p>Previously, at CEA LIST, I developed decentralised and robust <strong>federated-learning</strong> algorithms for secure distributed AI, and engineered countermeasures against backdoor and poisoning attacks to strengthen the trustworthiness of AI in industrial settings. Earlier work at MedUni Graz and AIT covered <strong>interpretable and explainable ML</strong> for healthcare and <strong>human activity recognition</strong> for ambient assisted living.</p>
-        <p>I hold a PhD in Computer Science from TU Graz and was a Marie Skłodowska–Curie fellow in the H2020 ACROSSING network. <em>Research interests:</em> prognostics &amp; health management, battery degradation modelling, federated &amp; trustworthy AI, explainable AI, human activity recognition, predictive maintenance.</p>
+        <p>I am a Research Engineer at the <a href="https://portail.polytechnique.edu/cmap/en" target="_blank" rel="noopener">Centre de Mathématiques Appliquées (CMAP)</a>, <a href="https://www.polytechnique.edu/en" target="_blank" rel="noopener">École Polytechnique</a>, where I build machine-learning methods for <strong>prognostics and health management (PHM)</strong> — fault detection, diagnostics, and predictive maintenance — from multi-sensor operational data, with a current focus on <strong>battery health management</strong>.</p>
+        <p>Before joining CMAP in July 2024, I was a postdoctoral researcher at <a href="https://list.cea.fr/en/" target="_blank" rel="noopener">CEA&nbsp;LIST</a> (Paris-Saclay), developing decentralised and robust <strong>federated-learning</strong> algorithms for secure distributed AI and designing countermeasures against backdoor and poisoning attacks. Earlier, at the <a href="https://www.medunigraz.at/en/" target="_blank" rel="noopener">Medical University of Graz</a> I contributed to the EU <a href="https://featurecloud.eu/" target="_blank" rel="noopener">FeatureCloud</a> project on privacy-preserving healthcare AI, and at the <a href="https://www.ait.ac.at/en/" target="_blank" rel="noopener">Austrian Institute of Technology (AIT)</a> I worked on <strong>interpretable and explainable ML</strong> and <strong>human activity recognition</strong> for ambient assisted living.</p>
+        <p>I completed my PhD in Computer Science at <a href="https://www.tugraz.at/en/" target="_blank" rel="noopener">Graz University of Technology</a> in 2021, advised by <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">Andreas Holzinger</a>, as a <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/" target="_blank" rel="noopener">Marie Skłodowska–Curie</a> fellow in the H2020 <a href="https://cordis.europa.eu/project/id/676157" target="_blank" rel="noopener">ACROSSING</a> Innovative Training Network.</p>
+        <p><em>Research interests:</em> prognostics &amp; health management, battery degradation modelling, federated &amp; trustworthy AI, explainable AI, human activity recognition, predictive maintenance.</p>
       </div>
 
       <h2 id="news"><a href="#news">news</a></h2>
       <div class="news">
         <table>
           <tbody>
-            <tr><th>May 2025</th><td>Gave an invited talk in the Battery Intelligence track at AABC Europe, Mainz — <em>Degradation-Directed Analysis of Lead-acid Batteries from Operational Data</em>.</td></tr>
-            <tr><th>Feb 2025</th><td>New article in <em>Universal Access in the Information Society</em> on explainability of deep learning for multi-resident activity recognition under class imbalance.</td></tr>
-            <tr><th>Jul 2024</th><td>Joined CMAP, École Polytechnique as a Research Engineer, working on machine learning for battery health management.</td></tr>
-            <tr><th>Dec 2023</th><td>Received the Best Student Paper Award at TPS-ISA 2023 for <em>Fuba: Federated uncovering of backdoor attacks for heterogeneous data</em>.</td></tr>
+            <tr><th>May 2025</th><td>I gave an invited talk in the Battery Intelligence track at <a href="https://www.aabc-europe.com/" target="_blank" rel="noopener">AABC Europe</a>, Mainz — <em>Degradation-Directed Analysis of Lead-acid Batteries from Operational Data</em>.</td></tr>
+            <tr><th>Feb 2025</th><td>Our article on the explainability of deep learning for multi-resident activity recognition under class imbalance appeared in <a href="https://link.springer.com/journal/10209" target="_blank" rel="noopener"><em>Universal Access in the Information Society</em></a>.</td></tr>
+            <tr><th>Jul 2024</th><td>I joined <a href="https://portail.polytechnique.edu/cmap/en" target="_blank" rel="noopener">CMAP</a>, École Polytechnique as a Research Engineer, working on machine learning for battery health management.</td></tr>
+            <tr><th>Dec 2023</th><td>Honoured to receive the <strong>Best Student Paper Award</strong> at TPS-ISA 2023 for <em>Fuba: Federated uncovering of backdoor attacks for heterogeneous data</em>, with F.&nbsp;Espinoza, A.&nbsp;Mayoue and C.&nbsp;Gouy-Pailler.</td></tr>
           </tbody>
         </table>
+        <details>
+          <summary>news archive</summary>
+          <table>
+            <tbody>
+              <tr><th>Jul 2021</th><td>I defended my PhD, <em>Machine Learning-based Smart Home Systems in Ambient Assisted Living</em>, at <a href="https://www.tugraz.at/en/" target="_blank" rel="noopener">TU&nbsp;Graz</a>.</td></tr>
+              <tr><th>2018</th><td>Our paper <em>Users' perceptions and attitudes towards smart home technologies</em> received the <strong>Best Student Paper Award</strong> at ICOST 2018.</td></tr>
+              <tr><th>Apr 2018</th><td>Research visit to <a href="https://www.dmu.ac.uk/" target="_blank" rel="noopener">De Montfort University</a>, Leicester, UK.</td></tr>
+              <tr><th>Apr 2017</th><td>Research stay at Zuyderland Nursing Homes, Sittard, the Netherlands.</td></tr>
+              <tr><th>Sep 2016</th><td>Awarded a <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/" target="_blank" rel="noopener">Marie Skłodowska–Curie</a> Fellowship (H2020 MSCA-ITN, <a href="https://cordis.europa.eu/project/id/676157" target="_blank" rel="noopener">ACROSSING</a>) to begin my PhD.</td></tr>
+            </tbody>
+          </table>
+        </details>
       </div>
 
       <h2 id="experience"><a href="#experience">experience</a></h2>
 
       <div class="entry">
         <div class="entry-head"><span class="role">Research Engineer</span><span class="when">Jul 2024 — Present</span></div>
-        <p class="where">Centre de Mathématiques Appliquées (CMAP), École Polytechnique · Palaiseau, France</p>
+        <p class="where"><a href="https://portail.polytechnique.edu/cmap/en" target="_blank" rel="noopener">Centre de Mathématiques Appliquées (CMAP)</a>, École Polytechnique · Palaiseau, France</p>
         <ul>
           <li>Design advanced ML methods for fault detection, diagnostics, and predictive maintenance (PHM).</li>
           <li>Optimise industrial processes by integrating multi-sensor datasets, with a focus on battery health management.</li>
@@ -359,7 +385,7 @@
 
       <div class="entry">
         <div class="entry-head"><span class="role">Research Engineer / Postdoctoral Researcher</span><span class="when">Jul 2022 — Jun 2024</span></div>
-        <p class="where">Commissariat à l'énergie atomique et aux énergies alternatives (CEA) LIST · Paris-Saclay, France</p>
+        <p class="where"><a href="https://list.cea.fr/en/" target="_blank" rel="noopener">Commissariat à l'énergie atomique et aux énergies alternatives (CEA) LIST</a> · Paris-Saclay, France</p>
         <ul>
           <li>Developed decentralised and robust federated-learning algorithms for secure distributed AI.</li>
           <li>Engineered countermeasures against backdoor and poisoning attacks, strengthening AI trustworthiness in industrial applications.</li>
@@ -368,47 +394,29 @@
 
       <div class="entry">
         <div class="entry-head"><span class="role">Scientific Researcher</span><span class="when">Nov 2019 — Jan 2021</span></div>
-        <p class="where">Medizinische Universität Graz (MedUni) · Graz, Austria</p>
+        <p class="where"><a href="https://www.medunigraz.at/en/" target="_blank" rel="noopener">Medizinische Universität Graz (MedUni)</a> · Graz, Austria</p>
         <ul>
-          <li>Contributed to the EU-funded FeatureCloud project, advancing privacy-preserving healthcare AI.</li>
+          <li>Contributed to the EU-funded <a href="https://featurecloud.eu/" target="_blank" rel="noopener">FeatureCloud</a> project, advancing privacy-preserving healthcare AI.</li>
           <li>Built interpretable and explainable ML models to enhance transparency in the medical domain.</li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-head"><span class="role">Junior Scientist — Marie Curie PhD Fellow</span><span class="when">Sep 2016 — Oct 2019</span></div>
-        <p class="where">Austrian Institute of Technology (AIT) GmbH · Wiener Neustadt, Austria</p>
+        <p class="where"><a href="https://www.ait.ac.at/en/" target="_blank" rel="noopener">Austrian Institute of Technology (AIT) GmbH</a> · Wiener Neustadt, Austria</p>
         <ul>
           <li>Marie Skłodowska–Curie fellow in H2020 ACROSSING — machine learning and deep learning for smart homes and ambient assisted living (AAL).</li>
           <li>Developed models for user behaviour, activity recognition, privacy-preserving data management, and dialogue systems in AAL environments.</li>
         </ul>
-        <p class="note">Visiting researcher: De Montfort University, UK (Apr–May 2018); Zuyderland Nursing Homes, Netherlands (Apr–May 2017).</p>
-      </div>
-
-      <div class="entry">
-        <div class="entry-head"><span class="role">Lecturer &amp; Research Fellow</span><span class="when">Aug 2014 — Jun 2015</span></div>
-        <p class="where">Malaviya National Institute of Technology (MNIT) · Jaipur, India</p>
-        <ul>
-          <li>Taught Image Processing, Data Mining, and Algorithm Design for bachelor's students.</li>
-          <li>Conducted research activities in collaboration with Master's and PhD students.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-head"><span class="role">Lecturer</span><span class="when">Jun 2011 — Jul 2012</span></div>
-        <p class="where">PCE Engineering College · Jaipur, India</p>
-        <ul>
-          <li>Taught the C programming language for bachelor's students.</li>
-          <li>Organised technical activities among students for software development.</li>
-        </ul>
+        <p class="note"><a href="https://marie-sklodowska-curie-actions.ec.europa.eu/" target="_blank" rel="noopener">Marie Skłodowska–Curie</a> fellow in the H2020 <a href="https://cordis.europa.eu/project/id/676157" target="_blank" rel="noopener">ACROSSING</a> ITN. Research visits: <a href="https://www.dmu.ac.uk/" target="_blank" rel="noopener">De Montfort University</a>, UK (Apr–May 2018); Zuyderland Nursing Homes, Netherlands (Apr–May 2017).</p>
       </div>
 
       <h2 id="education"><a href="#education">education</a></h2>
 
       <div class="entry">
         <div class="entry-head"><span class="role">PhD in Computer Science</span><span class="when">Nov 2017 — Jul 2021</span></div>
-        <p class="where">Graz University of Technology (TU Graz) · Graz, Austria</p>
-        <p class="note">Thesis: <em>Machine Learning-based Smart Home Systems in Ambient Assisted Living.</em> Advisor: Prof. Andreas Holzinger.</p>
+        <p class="where"><a href="https://www.tugraz.at/en/" target="_blank" rel="noopener">Graz University of Technology (TU Graz)</a> · Graz, Austria</p>
+        <p class="note">Thesis: <em>Machine Learning-based Smart Home Systems in Ambient Assisted Living.</em> Advisor: <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">Prof. Andreas Holzinger</a>.</p>
       </div>
 
       <div class="entry">
@@ -423,16 +431,34 @@
         <p class="note">Thesis: <em>Website Development and Payroll Management System using ASP.NET.</em></p>
       </div>
 
+      <h2 id="teaching"><a href="#teaching">teaching</a></h2>
+
+      <div class="entry">
+        <div class="entry-head"><span class="role">Image Processing · Data Mining · Algorithm Design</span><span class="when">2014 — 2015</span></div>
+        <p class="where"><a href="https://mnit.ac.in/" target="_blank" rel="noopener">Malaviya National Institute of Technology (MNIT)</a> · Jaipur, India</p>
+        <ul>
+          <li>Lectured three undergraduate courses and co-supervised Master's and PhD project work.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="role">C Programming</span><span class="when">2011 — 2012</span></div>
+        <p class="where">PCE Engineering College · Jaipur, India</p>
+        <ul>
+          <li>Taught the introductory programming course and ran student software-development activities.</li>
+        </ul>
+      </div>
+
       <h2 id="publications"><a href="#publications">selected publications</a></h2>
-      <p class="periodical" style="margin-top:-0.4rem;">15 publications · 830 citations · h-index 12 —
-        <a href="https://scholar.google.com/citations?user=m7G4VR0AAAAJ&amp;hl=en" target="_blank" rel="noopener">full list on Google&nbsp;Scholar</a>
+      <p class="periodical" style="margin-top:-0.4rem;">A selection below — the full list (15 papers) is on
+        <a href="https://scholar.google.com/citations?user=m7G4VR0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google&nbsp;Scholar</a>.
       </p>
       <div class="publications">
         <ol class="bibliography">
+          <li class="year">2025</li>
           <li>
-            <div class="abbr"><span class="badge">2025</span></div>
+            <div class="abbr"><span class="badge">UAIS</span></div>
             <div class="title">Class imbalance in multi-resident activity recognition: an evaluative study on explainability of deep learning approaches</div>
-            <div class="author"><em>D. Singh</em>, E. Merdivan, J. Kropf, M. Geist, A. Holzinger, S. Hanke</div>
+            <div class="author"><em>D. Singh</em>, <a href="https://scholar.google.com/citations?user=UUnI91cAAAAJ&amp;hl=en" target="_blank" rel="noopener">E. Merdivan</a>, <a href="https://scholar.google.com/citations?user=hrpW2HsAAAAJ&amp;hl=en" target="_blank" rel="noopener">J. Kropf</a>, <a href="https://scholar.google.com/citations?user=ectPLEUAAAAJ&amp;hl=en" target="_blank" rel="noopener">M. Geist</a>, <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">A. Holzinger</a>, <a href="https://www.fh-joanneum.at/en/university/person/sten-hanke/" target="_blank" rel="noopener">S. Hanke</a></div>
             <div class="periodical"><em>Universal Access in the Information Society</em>, 24, 1173–1191, 2025</div>
             <div class="links">
               <a class="btn" href="https://doi.org/10.1007/s10209-024-01123-0" target="_blank" rel="noopener">DOI</a>
@@ -451,8 +477,9 @@
 }</pre></div>
           </li>
 
+          <li class="year">2023</li>
           <li>
-            <div class="abbr"><span class="badge">2023</span></div>
+            <div class="abbr"><span class="badge">GRETSI</span></div>
             <div class="title">Défense contre les attaques par porte dérobée en apprentissage fédéré par estimation du motif d'attaque et élagage</div>
             <div class="author">F. Espinoza, <em>D. Singh</em>, A. Mayoue, C. Gouy-Pailler</div>
             <div class="periodical"><em>GRETSI 2023 Conference</em>, Aug 2023</div>
@@ -469,11 +496,12 @@
 }</pre></div>
           </li>
 
+          <li class="year">2018</li>
           <li>
-            <div class="abbr"><span class="badge">2018</span></div>
+            <div class="abbr"><span class="badge">ICOST</span></div>
             <div class="title">Users' perceptions and attitudes towards smart home technologies</div>
-            <div class="author"><em>D. Singh</em>, I. Psychoula, J. Kropf, S. Hanke, A. Holzinger</div>
-            <div class="periodical"><em>Lecture Notes in Computer Science</em>, Springer, 203–214, 2018</div>
+            <div class="author"><em>D. Singh</em>, I. Psychoula, <a href="https://scholar.google.com/citations?user=hrpW2HsAAAAJ&amp;hl=en" target="_blank" rel="noopener">J. Kropf</a>, <a href="https://www.fh-joanneum.at/en/university/person/sten-hanke/" target="_blank" rel="noopener">S. Hanke</a>, <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">A. Holzinger</a></div>
+            <div class="periodical"><em>Lecture Notes in Computer Science</em>, Springer, 203–214, 2018 · Best Student Paper Award</div>
             <div class="links">
               <a class="btn" href="https://doi.org/10.1007/978-3-319-94523-1_18" target="_blank" rel="noopener">DOI</a>
               <a class="btn bibtex-toggle" href="#" role="button" data-target="bib3">Bib</a>
@@ -490,10 +518,11 @@
 }</pre></div>
           </li>
 
+          <li class="year">2017</li>
           <li>
-            <div class="abbr"><span class="badge">2017</span></div>
+            <div class="abbr"><span class="badge">ICOST</span></div>
             <div class="title">Ambient assisted living technologies from the perspectives of older people and professionals</div>
-            <div class="author"><em>D. Singh</em>, J. Kropf, S. Hanke, A. Holzinger</div>
+            <div class="author"><em>D. Singh</em>, <a href="https://scholar.google.com/citations?user=hrpW2HsAAAAJ&amp;hl=en" target="_blank" rel="noopener">J. Kropf</a>, <a href="https://www.fh-joanneum.at/en/university/person/sten-hanke/" target="_blank" rel="noopener">S. Hanke</a>, <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">A. Holzinger</a></div>
             <div class="periodical"><em>Lecture Notes in Computer Science</em>, Springer, 255–266, 2017</div>
             <div class="links">
               <a class="btn" href="https://doi.org/10.1007/978-3-319-66808-6_17" target="_blank" rel="noopener">DOI</a>
@@ -512,9 +541,9 @@
           </li>
 
           <li>
-            <div class="abbr"><span class="badge">2017</span></div>
+            <div class="abbr"><span class="badge">Springer</span></div>
             <div class="title">Convolutional and recurrent neural networks for activity recognition in smart environment</div>
-            <div class="author"><em>D. Singh</em>, E. Merdivan, S. Hanke, J. Kropf, M. Geist, A. Holzinger</div>
+            <div class="author"><em>D. Singh</em>, <a href="https://scholar.google.com/citations?user=UUnI91cAAAAJ&amp;hl=en" target="_blank" rel="noopener">E. Merdivan</a>, <a href="https://www.fh-joanneum.at/en/university/person/sten-hanke/" target="_blank" rel="noopener">S. Hanke</a>, <a href="https://scholar.google.com/citations?user=hrpW2HsAAAAJ&amp;hl=en" target="_blank" rel="noopener">J. Kropf</a>, <a href="https://scholar.google.com/citations?user=ectPLEUAAAAJ&amp;hl=en" target="_blank" rel="noopener">M. Geist</a>, <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">A. Holzinger</a></div>
             <div class="periodical"><em>Towards Integrative Machine Learning and Knowledge Extraction</em>, Springer, 194–205, 2017</div>
             <div class="links">
               <a class="btn" href="https://doi.org/10.1007/978-3-319-69775-8_12" target="_blank" rel="noopener">DOI</a>
@@ -534,9 +563,9 @@
           </li>
 
           <li>
-            <div class="abbr"><span class="badge">2017</span></div>
+            <div class="abbr"><span class="badge">ICOST</span></div>
             <div class="title">Human activity recognition using recurrent neural networks</div>
-            <div class="author"><em>D. Singh</em>, E. Merdivan, I. Psychoula, J. Kropf, S. Hanke, M. Geist, A. Holzinger</div>
+            <div class="author"><em>D. Singh</em>, <a href="https://scholar.google.com/citations?user=UUnI91cAAAAJ&amp;hl=en" target="_blank" rel="noopener">E. Merdivan</a>, I. Psychoula, <a href="https://scholar.google.com/citations?user=hrpW2HsAAAAJ&amp;hl=en" target="_blank" rel="noopener">J. Kropf</a>, <a href="https://www.fh-joanneum.at/en/university/person/sten-hanke/" target="_blank" rel="noopener">S. Hanke</a>, <a href="https://scholar.google.com/citations?user=ectPLEUAAAAJ&amp;hl=en" target="_blank" rel="noopener">M. Geist</a>, <a href="https://www.aholzinger.at/" target="_blank" rel="noopener">A. Holzinger</a></div>
             <div class="periodical"><em>Lecture Notes in Computer Science</em>, Springer, 267–274, 2017</div>
             <div class="links">
               <a class="btn" href="https://doi.org/10.1007/978-3-319-66808-6_18" target="_blank" rel="noopener">DOI</a>
@@ -593,6 +622,16 @@
       <div class="entry">
         <div class="entry-head"><span class="role">Outstanding Engineering Student — semester topper</span><span class="when">2009–2010</span></div>
         <p class="note">Department of Computer Science and Engineering, ACERC, RTU.</p>
+      </div>
+
+      <h2 id="service"><a href="#service">service</a></h2>
+      <div class="news">
+        <table>
+          <tbody>
+            <tr><th>Supervision</th><td>Master's and PhD project work at <a href="https://mnit.ac.in/" target="_blank" rel="noopener">MNIT Jaipur</a> (2014–2015).</td></tr>
+            <tr><th>Community</th><td>Alumna of the H2020 <a href="https://cordis.europa.eu/project/id/676157" target="_blank" rel="noopener">ACROSSING</a> Innovative Training Network (<a href="https://marie-sklodowska-curie-actions.ec.europa.eu/" target="_blank" rel="noopener">Marie Skłodowska–Curie</a>).</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <h2 id="skills"><a href="#skills">skills</a></h2>
